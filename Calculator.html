@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <style media="screen">
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #BDBDBD;
+}
+
+#calcContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #ffffff;
+  width: 80%;
+  height: auto;
+  box-shadow: 0.5em 0.5em 1.2em rgba(0, 0, 0, 0.2);
+}
+
+.result-clear {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.result-clear input[type=text].result {
+  display: block;
+  border: 0;
+  padding-top: 1%;
+  padding-left: 5%;
+  width: 72%;
+  height: 60px;
+  font-size: 1.4em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid-buttons {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #212121;
+}
+
+input[type=button] {
+  flex-grow: 1;
+  width: 25%;
+  height: auto;
+  padding: 4%;
+  border: 0;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #ffffff;
+  background: #212121;
+  border: 2px solid #212121;
+}
+
+input[type=button]:focus {
+  outline: 0;
+}
+
+input[type=button].clear {
+  width: 25.5%;
+  font-size: 20px;
+  background: #009688;
+  border: 2px solid #009688;
+}
+
+.grid-buttons input[type=button].math {
+  background: #757575;
+  border: 2px solid #757575;
+}
+
+.grid-buttons input[type=button]:hover,
+input[type=button].clear:hover {
+  background: #00BCD4;
+  border: 2px solid #00BCD4;
+  transition: 0.3s ease;
+}
+  </style>
+</head>
+<body>
+<div id="calcContainer">
+  <form name="calculator">
+    <div class="result-clear">
+      <input type="text" class="result" name="answer" readonly />
+      <input type="button" class="clear" value=" AC " onclick="calculator.answer.value = ''" />
+    </div>
+    <div class="grid-buttons">
+      <input type="button" value="9" onclick="calculator.answer.value += '9'" />
+      <input type="button" value="8" onclick="calculator.answer.value += '8'" />
+      <input type="button" value="7" onclick="calculator.answer.value += '7'" />
+      <input type="button" value="+" onclick="calculator.answer.value += '+'" class="math" />
+      <br />
+      <input type="button" value="4" onclick="calculator.answer.value += '4'" />
+      <input type="button" value="5" onclick="calculator.answer.value += '5'" />
+      <input type="button" value="6" onclick="calculator.answer.value += '6'" />
+      <input type="button" value="&minus;" onclick="calculator.answer.value += '-'" class="math" />
+      <br />
+      <input type="button" value="1" onclick="calculator.answer.value += '1'" />
+      <input type="button" value="2" onclick="calculator.answer.value += '2'" />
+      <input type="button" value="3" onclick="calculator.answer.value += '3'" />
+      <input type="button" value="&#247;" onclick="calculator.answer.value += '/'" class="math" />
+      <br />
+      <input type="button" value="." onclick="calculator.answer.value += '.'" />
+      <input type="button" value="0" onclick="calculator.answer.value += '0'" />
+      <input type="button" value="=" onclick="calculator.answer.value = eval(calculator.answer.value)" />
+      <input type="button" value="&#215;" onclick="calculator.answer.value += '*'" class="math" />
+    </div>
+  </form>
+</div>
+</body>
+</html>
